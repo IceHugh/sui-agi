@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sui Agi
 
-## Getting Started
+Sui Agi 是一个基于 Next.js、TypeScript、shadcn/ui、tRPC、Zustand、Tauri 等现代技术栈构建的多端钱包应用，支持 Web 和桌面端。
 
-First, run the development server:
+## 主要功能
+- 多账户管理与切换
+- 钱包操作与区块链交互（Sui 区块链）
+- 国际化与主题切换
+- 现代 UI 组件与类型安全 API
+- 跨平台桌面端支持
 
+## 技术栈
+Next.js、React、TypeScript、shadcn/ui、Tailwind CSS、Zustand、tRPC、i18next、next-themes、Tauri、Mastra Agent
+
+## 快速开始
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install # 或 npm install
+bun dev     # 或 npm run dev
 ```
+访问 http://localhost:3333
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 详细文档
+请查阅 [doc/README.md](./doc/README.md) 获取开发、架构、贡献等详细说明。

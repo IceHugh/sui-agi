@@ -1,14 +1,14 @@
 import { IconButton } from '@/components/common/button/IconButton';
 import React from 'react';
-import { useState } from 'react';
+import { useTheme } from "next-themes"
 
 export const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const { theme, setTheme } = useTheme()
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    // document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
 
   const icon =

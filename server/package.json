@@ -1,24 +1,33 @@
 {
-	"name": "worker",
-	"version": "0.0.0",
-	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.7.5",
-		"@cloudflare/workers-types": "^4.20250321.0",
-		"prisma": "^6.5.0",
-		"typescript": "^5.5.2",
-		"vitest": "~3.0.7",
-		"wrangler": "^4.5.0"
-	},
-	"private": true,
-	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "wrangler dev",
-		"start": "wrangler dev",
-		"test": "vitest",
-		"cf-typegen": "wrangler types"
-	},
-	"dependencies": {
-		"@prisma/client": "^6.5.0",
-		"@prisma/extension-accelerate": "^1.3.0"
-	}
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "mastra dev",
+    "build": "mastra build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@ai-sdk/openai": "^1.3.22",
+    "@ai-sdk/openai-compatible": "^0.2.14",
+    "@copilotkit/runtime": "^1.8.11",
+    "@mastra/client-js": "^0.1.21",
+    "@mastra/core": "^0.9.4-alpha.1",
+    "@mastra/deployer-cloudflare": "^0.1.23",
+    "@mastra/deployer-vercel": "^0.1.23",
+    "@mastra/libsql": "^0.0.4-alpha.1",
+    "@mastra/mcp": "^0.4.3",
+    "@mastra/memory": "^0.3.4-alpha.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "mastra": "^0.6.3-alpha.1",
+    "typescript": "^5.8.3"
+  }
 }

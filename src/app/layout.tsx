@@ -1,9 +1,9 @@
 'use client';
-import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import '@/assets/styles/globals.css';
+import '@/assets/styles/index.css';
 import { Providers } from '@/components/providers/Providers';
 import MainLayout from '@/layouts/MainLayout';
+
 type Props = {
 	children: ReactNode;
 };
@@ -14,14 +14,15 @@ export default function LocaleLayout({ children }: Props) {
 	// const messages = await getMessages({locale: 'en'});
 	// console.log("messages", messages);
 	return (
-		<html lang='en' suppressHydrationWarning>
+		<html className='h-full' lang='en' suppressHydrationWarning>
 			<head>
-				<title>next-intl example</title>
+				<title>Sui Agi</title>
+				<link
+					href='https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'
+					rel='stylesheet'
+				/>
 			</head>
-			<body
-				className={clsx('flex min-h-[100vh] flex-col bg-slate-100')}
-				suppressHydrationWarning
-			>
+			<body className='h-full' suppressHydrationWarning>
 				<Providers>
 					<MainLayout>{children}</MainLayout>
 				</Providers>
