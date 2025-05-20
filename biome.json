@@ -17,7 +17,8 @@
 			"out",
 			"scripts",
 			"src-tauri",
-			".react-router"
+			".react-router",
+			".next"
 		]
 	},
 	"formatter": {

@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const config: NextConfig = {
-  output: "export" as const, // 启用静态导出
   trailingSlash: true,
   serverExternalPackages: ["@mastra/*"],
   images: {
