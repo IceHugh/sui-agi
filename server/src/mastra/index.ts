@@ -21,9 +21,9 @@ export const mastra = new Mastra({
 		level: 'info',
 	}),
 	deployer: new NetlifyDeployer({
-		scope: 'your-team-slug',
-		projectName: 'your-project-name',
-		token: 'your-netlify-token',
+		scope: 'wallet-demo',
+		projectName: 'sui-agi-server',
+		token: 'nfp_JDCtVcNWeC9bKfhcDR3DcRCneQKBxUVHe460',
 	}) as any,
 
 	// deployer: new CloudflareDeployer({
