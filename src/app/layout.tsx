@@ -9,10 +9,6 @@ type Props = {
 };
 
 export default function LocaleLayout({ children }: Props) {
-	// const locale = await getLocale();
-	// console.log("locale", locale);
-	// const messages = await getMessages({locale: 'en'});
-	// console.log("messages", messages);
 	return (
 		<html className='h-full' lang='en' suppressHydrationWarning>
 			<head>
@@ -21,6 +17,7 @@ export default function LocaleLayout({ children }: Props) {
 					href='https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'
 					rel='stylesheet'
 				/>
+				<link rel='icon' href='/logo.jpg' />
 			</head>
 			<body className='h-full' suppressHydrationWarning>
 				<Providers>

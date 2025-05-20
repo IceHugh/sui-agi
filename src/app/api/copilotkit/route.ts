@@ -43,7 +43,7 @@ export const POST = async (req: NextRequest) => {
 	const body = await clonedReq.json();
 
 	const resourceId = body.resourceId || 'TEST';
-	const baseUrl = process.env.MASTRA_BASE_URL || 'http://localhost:4111';
+	const baseUrl = process.env.MASTRA_BASE_URL || 'https://sui.btcname.link';
 
 	const mastra = new MastraClient({
 		baseUrl,

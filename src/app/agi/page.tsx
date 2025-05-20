@@ -36,7 +36,7 @@ export default function Agi() {
 			<CopilotChat
 				className={`h-full rounded-2xl ${disabled ? 'pointer-events-none' : ''}`}
 				labels={{ initial: "Hi, I'm an Sui wallet agent. Want to chat?" }}
-			></CopilotChat>
+			/>
 			<InsertCopilotPortal
 				targetSelector='.copilotKitInputContainer'
 				portalId='copilot-toolbar'
