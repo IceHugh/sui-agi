@@ -46,7 +46,20 @@ export const MyStacksListCard: React.FC = () => {
     <Card className="p-3">
       <div className="space-y-4">
         {(!stakes || stakes.length === 0) && (
-          <div className="text-center text-gray-400 py-8">No stakes</div>
+          <div className="flex flex-col items-center gap-4 py-8 text-gray-400">
+            <div>No stakes</div>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                appendMessage(new TextMessage({
+                  role: Role.User,
+                  content: "Show the Sui system staked list",
+                }));
+              }}
+            >
+              Fetch all staking records
+            </Button>
+          </div>
         )}
         {stakes && stakes.map((item: any) => (
           item.stakes.map((stake: any) => {

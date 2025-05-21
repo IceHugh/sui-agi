@@ -1,6 +1,6 @@
 import {
   useCopilotAction,
-  } from "@copilotkit/react-core";
+} from "@copilotkit/react-core";
 import { MyStacksListCard } from "./component";
 import { isValidSuiAddress, formatAddress } from "@mysten/sui/utils";
 export const useShowMyStacksAction = () => {
@@ -16,8 +16,6 @@ export const useShowMyStacksAction = () => {
       },
     ],
     handler: async ({ address }) => {
-      console.log(address);
-
       return isValidSuiAddress(address) ? 'success' : 'error'
     },
     render: ({ args }) => {
