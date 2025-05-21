@@ -18,7 +18,7 @@ export function useNfts(address?: string) {
   } = useSuiClientInfiniteQuery(
     'getOwnedObjects',
     { owner: address || '', options: { showDisplay: true, showType: true } },
-    { enabled: !!address, gcTime: 10000 }
+    { enabled: !!address, gcTime: 3000, refetchInterval: 3000 }
   );
 
   useEffect(() => {

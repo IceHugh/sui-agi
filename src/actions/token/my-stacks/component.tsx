@@ -38,7 +38,7 @@ export const MyStacksListCard: React.FC = () => {
   const onUnstake = (name: string, stakedSuiId: string) => {
     appendMessage(new TextMessage({
       role: Role.User,
-      content: `你将解除验证者 ${name} 的质押，质押的SUI ID是 ${stakedSuiId}`,
+      content: `You will unstake from validator ${name}, the staked SUI ID is ${stakedSuiId}`,
     }));
   };
 

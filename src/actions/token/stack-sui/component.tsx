@@ -11,7 +11,7 @@ import { ErrorCard } from "@/components/card/ErrorCard";
 import useAssetStore from "@/stores/useAssetStore";
 import { formatAddress } from "@mysten/sui/utils";
 import { gernerateTxPrompt } from "@/prompts";
-
+import { useStakes } from "@/hooks/useStakes";
 interface StackTxCardProps {
   amount: number;
   validatorAddress: string;
@@ -24,6 +24,7 @@ export const StackSuiTxCard: React.FC<StackTxCardProps> = ({ amount, validatorAd
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction();
   const currentAccount = useCurrentAccount();
   const client = useSuiClient();
+  const { refetch } = useStakes(currentAccount?.address);
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [txResult, setTxResult] = useState<string | null>(null);
@@ -79,6 +80,7 @@ export const StackSuiTxCard: React.FC<StackTxCardProps> = ({ amount, validatorAd
           const { digest } = result;
           onConfirm(gernerateTxPrompt(digest));
           setIsLoading(false);
+          refetch();
         },
         onError: (error: any) => {
           toast.error(error.message || 'Staking failed');

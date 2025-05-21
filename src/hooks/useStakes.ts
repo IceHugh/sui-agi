@@ -8,7 +8,7 @@ export function useStakes(address?: string) {
     setStakesLoading,
     setStakesError,
   } = useAssetStore();
-  const { data, isPending, isError, error } = useSuiClientQuery('getStakes', { owner: address || '' }, { enabled: !!address, gcTime: 10000 });
+  const { data, isPending, isError, error, refetch } = useSuiClientQuery('getStakes', { owner: address || '' }, { enabled: !!address, gcTime: 3000, refetchInterval: 3000 });
 
   useEffect(() => {
     setStakesLoading(isPending);
@@ -16,4 +16,5 @@ export function useStakes(address?: string) {
     console.log(data);
     setStakes(data ? data : []);
   }, [data, isPending, isError, error, setStakes, setStakesLoading, setStakesError]);
+  return { refetch };
 }

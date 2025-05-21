@@ -6,6 +6,7 @@ import { formatAddress } from "@mysten/sui/utils";
 export interface StakeValidatorCardProps {
   validator: any;
   apy: string;
+  status: "complete" | "executing" | "inProgress";
   isStakeInput: boolean;
   onConfirm: (validator: any, amount?: string) => void;
   onCancel: (address: string) => void;
@@ -14,6 +15,7 @@ export interface StakeValidatorCardProps {
 export const StakeValidatorCard: React.FC<Omit<StakeValidatorCardProps, 'amount' | 'onAmountChange'>> = ({
   validator,
   apy,
+  status,
   onConfirm,
   onCancel,
 }) => {
@@ -35,6 +37,7 @@ export const StakeValidatorCard: React.FC<Omit<StakeValidatorCardProps, 'amount'
             onClick={handleStake}
             variant="default"
             size="sm"
+            disabled={status === "executing" || status === "inProgress"}
             className="px-4 py-1"
           >
             Stake

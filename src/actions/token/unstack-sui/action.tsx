@@ -28,7 +28,7 @@ export const useUnstackSuiAction = () => {
           />
         );
       } else {
-        return <div>操作已完成</div>;
+        return <div>Operation completed</div>;
       }
     },
     followUp: false,

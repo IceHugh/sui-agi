@@ -23,7 +23,7 @@ const SORT_OPTIONS = [
   { value: "votingPower", label: "Voting Power" },
 ];
 
-export const StacksListCard: React.FC = () => {
+export const StacksListCard: React.FC<{ status: "complete" | "executing" | "inProgress" }> = ({ status }) => {
   const {
     validatorsApy,
     validatorsApyLoading,
@@ -104,6 +104,7 @@ export const StacksListCard: React.FC = () => {
           {getSortedValidators().map((validator: any) => (
             <StakeValidatorCard
               key={validator.suiAddress}
+              status={status}
               validator={validator}
               apy={getApyByValidator(validator.suiAddress)}
               isStakeInput={!!stakeInput[validator.suiAddress]}

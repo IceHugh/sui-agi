@@ -11,8 +11,8 @@ export const useShowAllStacksAction = () => {
       "显示所有可质押的验证者列表，只有用户没有质押或者直接询问所有质押列表时，才调用该工具，",
     parameters: [
     ],
-    render: ({ args }) => {
-      return <StacksListCard />
+    render: ({ args, status }) => {
+      return <StacksListCard status={status} />
     },
     followUp: false,
   });

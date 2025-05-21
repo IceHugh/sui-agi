@@ -9,7 +9,7 @@ export function useBalances(address?: string) {
     setBalancesError,
   } = useAssetStore();
   const client = useSuiClient();
-  const { data, isPending, isError, error } = useSuiClientQuery('getAllBalances', { owner: address || '' }, { enabled: !!address, gcTime: 10000 });
+  const { data, isPending, isError, error } = useSuiClientQuery('getAllBalances', { owner: address || '' }, { enabled: !!address, gcTime: 3000, refetchInterval: 3000 });
 
   useEffect(() => {
     let cancelled = false;
