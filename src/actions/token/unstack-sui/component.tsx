@@ -8,6 +8,7 @@ import { UiButton } from "@/components/common/button/UiButton";
 import { MIST_PER_SUI } from "@/constants";
 import useAssetStore from "@/stores/useAssetStore";
 import { gernerateTxPrompt } from "@/prompts";
+import { useSuiNetwork } from "@/stores/sui-network";
 
 interface StackTxCardProps {
   stakedSuiId: string;
@@ -21,7 +22,7 @@ export const UnStackSuiTxCard: React.FC<StackTxCardProps> = ({ stakedSuiId, stat
   const currentAccount = useCurrentAccount();
   const [isLoading, setIsLoading] = useState(false);
   const { suiSystemState,  stakes } = useAssetStore();
-
+  const network = useSuiNetwork();
   const stakePool = useMemo(() => stakes.find((s: any) => s.stakes.find((s: any) => s.stakedSuiId === stakedSuiId)), [stakes, stakedSuiId]);
   const stake = useMemo(() => stakePool?.stakes.find((s: any) => s.stakedSuiId === stakedSuiId), [stakePool, stakedSuiId]);
   const validator = useMemo(() => suiSystemState?.activeValidators.find((v: any) => v.suiAddress === stakePool.validatorAddress), [suiSystemState, stakePool]);
@@ -35,7 +36,7 @@ export const UnStackSuiTxCard: React.FC<StackTxCardProps> = ({ stakedSuiId, stat
       });
       signAndExecuteTransaction({
         transaction: txb,
-        chain: 'sui:testnet',
+        chain: `sui:${network}`,
       }, {
         onSuccess: (result) => {
           const { digest } = result;

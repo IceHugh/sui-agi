@@ -13,6 +13,7 @@ import { toast } from "sonner"
 import { gernerateTxPrompt } from "@/prompts";
 import { UiButton } from "@/components/common/button/UiButton";
 import useAssetStore from "@/stores/useAssetStore";
+import { useSuiNetwork } from "@/stores/sui-network";
 
 interface TransferCardProps {
   status: "complete" | "executing" | "inProgress"
@@ -31,7 +32,7 @@ export const TransferTokenCard: React.FC<TransferCardProps> = ({ amount, toAddre
   const [showConfirm, setShowConfirm] = useState(false);
   const [txResult, setTxResult] = useState<string | null>(null);
   const client = useSuiClient();
-
+  const network = useSuiNetwork();
   // 使用全局资产 store
   const { balances, balancesLoading, balancesError } = useAssetStore();
 
@@ -102,7 +103,7 @@ export const TransferTokenCard: React.FC<TransferCardProps> = ({ amount, toAddre
       });
       signAndExecuteTransaction({
         transaction: txb,
-        chain: 'sui:testnet',
+        chain: `sui:${network}`,
       },
         {
           onSuccess: (result) => {

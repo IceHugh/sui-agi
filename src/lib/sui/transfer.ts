@@ -1,5 +1,6 @@
 import { Transaction } from "@mysten/sui/transactions";
 import { SuiClient } from "@mysten/sui/client";
+import { SUI_COIN_TYPE } from "@/constants";
 
 export interface BuildSuiBatchTransferTxParams {
   client: SuiClient;
@@ -45,7 +46,7 @@ export async function buildSuiBatchTransferTx({
 
   const [mainCoin, ...restCoins] = allCoins.data;
 
-  const isSui = coinType === "0x2::sui::SUI";
+  const isSui = coinType === SUI_COIN_TYPE;
   const coinObjId = isSui ? txb.gas : mainCoin.coinObjectId;
 
   // 批量 split

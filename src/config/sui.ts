@@ -9,15 +9,11 @@ const { networkConfig, useNetworkVariable, useNetworkVariables } = createNetwork
   testnet: {
     url: getFullnodeUrl("testnet"),
     variables: {
-      package: "0xf671e77cd68eabb1922fc02f819e74119a826645656cb1da0cf53e5cf0afc1c9",
-      state: "0x964df793dafe1a583a49630f10113c275fe16eef5e0542b0c5ba92a8a79336bf",
     },
   },
   mainnet: {
     url: getFullnodeUrl("mainnet"),
     variables: {
-      package: "0xf671e77cd68eabb1922fc02f819e74119a826645656cb1da0cf53e5cf0afc1c9",
-      state: "0x964df793dafe1a583a49630f10113c275fe16eef5e0542b0c5ba92a8a79336bf",
     },
   }
 });

@@ -12,6 +12,7 @@ import useAssetStore from "@/stores/useAssetStore";
 import { formatAddress } from "@mysten/sui/utils";
 import { gernerateTxPrompt } from "@/prompts";
 import { useStakes } from "@/hooks/useStakes";
+import { useSuiNetwork } from "@/stores/sui-network";
 interface StackTxCardProps {
   amount: number;
   validatorAddress: string;
@@ -31,7 +32,7 @@ export const StackSuiTxCard: React.FC<StackTxCardProps> = ({ amount, validatorAd
   const [error, setError] = useState<string | null>(null);
   const { validatorsApy, suiSystemState, balances } = useAssetStore();
 
-
+  const network = useSuiNetwork();
   const suiCoin = useMemo(() => balances.find((b: any) => b.coinType === SUI_COIN_TYPE), [balances]);
   // 校验逻辑
   useEffect(() => {
@@ -74,7 +75,7 @@ export const StackSuiTxCard: React.FC<StackTxCardProps> = ({ amount, validatorAd
       });
       signAndExecuteTransaction({
         transaction: txb,
-        chain: 'sui:testnet',
+        chain: `sui:${network}`,
       }, {
         onSuccess: (result) => {
           const { digest } = result;

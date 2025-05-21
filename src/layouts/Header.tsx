@@ -1,4 +1,4 @@
-import { LanguageSwitcher } from "@/components/common/LanguageSwitcher";
+import { SuiNetworkSwitcher } from "@/components/common/SuiNetworkSwitcher";
 import { ThemeSwitcher } from "@/components/common/ThemeSwitcher";
 import { ConnectButton } from "@/components/wallet/ConnectButton";
 export default function Header() {
@@ -6,8 +6,8 @@ export default function Header() {
     <div className="h-full container mx-auto flex justify-end items-center gap-2">
       <div className="flex items-center gap-2">
         <ConnectButton />
+        <SuiNetworkSwitcher />
         <ThemeSwitcher />
-        {/* <LanguageSwitcher /> */}
       </div>
     </div>
   </nav>;
