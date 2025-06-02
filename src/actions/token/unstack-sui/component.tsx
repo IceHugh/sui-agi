@@ -40,7 +40,7 @@ export const UnStackSuiTxCard: React.FC<StackTxCardProps> = ({ stakedSuiId, stat
       }, {
         onSuccess: (result) => {
           const { digest } = result;
-          onConfirm(gernerateTxPrompt(digest));
+          onConfirm(gernerateTxPrompt(digest, network));
           setIsLoading(false);
         },
         onError: (error: any) => {

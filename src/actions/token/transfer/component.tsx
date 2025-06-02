@@ -108,7 +108,7 @@ export const TransferTokenCard: React.FC<TransferCardProps> = ({ amount, toAddre
         {
           onSuccess: (result) => {
             const { digest } = result;
-            onConfirm(gernerateTxPrompt(digest));
+            onConfirm(gernerateTxPrompt(digest, network));
             setIsLoading(false);
           },
           onError: (error: any) => {

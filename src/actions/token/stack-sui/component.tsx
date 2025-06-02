@@ -12,7 +12,7 @@ import useAssetStore from "@/stores/useAssetStore";
 import { formatAddress } from "@mysten/sui/utils";
 import { gernerateTxPrompt } from "@/prompts";
 import { useStakes } from "@/hooks/useStakes";
-import { useSuiNetwork } from "@/stores/sui-network";
+import { useSuiNetwork, useSuiNetworkStore } from "@/stores/sui-network";
 interface StackTxCardProps {
   amount: number;
   validatorAddress: string;
@@ -79,7 +79,7 @@ export const StackSuiTxCard: React.FC<StackTxCardProps> = ({ amount, validatorAd
       }, {
         onSuccess: (result) => {
           const { digest } = result;
-          onConfirm(gernerateTxPrompt(digest));
+          onConfirm(gernerateTxPrompt(digest, network));
           setIsLoading(false);
           refetch();
         },
